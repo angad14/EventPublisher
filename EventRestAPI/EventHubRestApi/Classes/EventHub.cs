@@ -13,8 +13,8 @@ namespace EventHubRestApi.Classes
     {
         private static EventHubClient eventHubClient;
 
-        private const string EventHubConnectionString = "Endpoint=sb://cloud-hackers-eventhub.servicebus.windows.net/;SharedAccessKeyName=cloudhackersSAP;SharedAccessKey=OiR+cURXNOFommsGb2q+lmuDPVoYJty/OJcCDW82HoU=;EntityPath=cloud-hackers-events";
-        private const string EventHubName = "cloud-hackers-events";
+        private const string EventHubConnectionString = "";
+        private const string EventHubName = "";
 
         public EventHub()
         {
