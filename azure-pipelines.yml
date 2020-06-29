@@ -15,7 +15,7 @@ variables:
   buildConfiguration: 'Release'
 
 stages:
-- stage: A
+- stage: Project Build
   jobs:
   - job : build
     steps:
@@ -36,3 +36,11 @@ stages:
       inputs:
         platform: '$(buildPlatform)'
         configuration: '$(buildConfiguration)'
+- stage : Unit Test
+  jobs:
+  - job : UnitTest
+    steps :    
+    - bash: echo "Unit Test 1"
+  - job : UnitTest2
+    steps :    
+    - bash: echo "Unit Test 2"
