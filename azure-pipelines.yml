@@ -15,7 +15,7 @@ variables:
   buildConfiguration: 'Release'
 
 stages:
-- stage: Project Build
+- stage: ProjectBuild
   jobs:
   - job : build
     steps:
@@ -36,7 +36,7 @@ stages:
       inputs:
         platform: '$(buildPlatform)'
         configuration: '$(buildConfiguration)'
-- stage : Unit Test
+- stage : UnitTest
   jobs:
   - job : UnitTest
     steps :    
