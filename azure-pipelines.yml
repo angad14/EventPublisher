@@ -38,19 +38,22 @@ stages:
         configuration: '$(buildConfiguration)'
 - stage : UnitTest
   jobs:
-  - job : UnitTest
+  - job : UnitTestJob
     steps :    
     - bash: echo "Unit Test 1"
-  - job : UnitTest2
+  - job : UnitTest2Job
     steps :    
     - bash: echo "Unit Test 2"
-- stage : Deploy
+- stage : DeployDev
   dependsOn: UnitTest
-  condition: and(succeeded())
+  # condition: and(succeeded(),)
   jobs:
-  - job : DeployDev
+  - job : DeployDevJob
     steps :    
     - bash: echo "Deploy in Dev"
-  - job : DeployQA
+- stage : DeployQA
+  dependsOn: UnitTest
+  jobs:
+  - job : DeployQAJob
     steps :    
     - bash: echo "Deploy in QA"
