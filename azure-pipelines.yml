@@ -46,13 +46,14 @@ stages:
     - bash: echo "Unit Test 2"
 - stage : DeployDev
   dependsOn: UnitTest
-  # condition: and(succeeded(),)
+  condition: and(succeeded(), eq(variables.Dev_Approval_Required, true))
   jobs:
   - job : DeployDevJob
     steps :    
     - bash: echo "Deploy in Dev"
 - stage : DeployQA
   dependsOn: UnitTest
+  condition: and(succeeded(), eq(variables.Qa_Approval_Required, true))
   jobs:
   - job : DeployQAJob
     steps :    
