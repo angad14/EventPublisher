@@ -45,6 +45,8 @@ stages:
     steps :    
     - bash: echo "Unit Test 2"
 - stage : Deploy
+  dependsOn: UnitTest
+  condition: and(succeeded())
   jobs:
   - job : DeployDev
     steps :    
