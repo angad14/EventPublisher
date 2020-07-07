@@ -44,3 +44,11 @@ stages:
   - job : UnitTest2
     steps :    
     - bash: echo "Unit Test 2"
+- stage : Deploy
+  jobs:
+  - job : DeployDev
+    steps :    
+    - bash: echo "Deploy in Dev"
+  - job : DeployQA
+    steps :    
+    - bash: echo "Deploy in QA"
